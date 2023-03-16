@@ -29,8 +29,8 @@ public class EjerciciosJava {
 	       double area = Math.PI * Math.pow(radio, 2);
 	       double circunferencia = 2 * Math.PI * radio;
 
-	    	System.out.println("El área del círculo es: " + area);
-	    	System.out.println("La circunferencia del círculo es: " + circunferencia);                                             
+	       System.out.println("El área del círculo es: " + area);
+	       System.out.println("La circunferencia del círculo es: " + circunferencia);                                             
 	}
 	
 // 	3 Escribir un metodo que muestre por consola la hora del sistema
@@ -74,7 +74,7 @@ public class EjerciciosJava {
 	static void areaSuperficialCubo(double ladoa) {
 		double areaSuperficial = 6 * Math.pow(ladoa, 2);
 
-    	System.out.println("El área superficial del cubo con lado es " + areaSuperficial);
+       System.out.println("El área superficial del cubo con lado es " + areaSuperficial);
 	}
 	
 	
@@ -124,18 +124,97 @@ public class EjerciciosJava {
 	}
 	
 	// 10. Escribir un programa para sumar 2 numeros sin usar operadores aritmeticos
+	
+	static void sumarNumeros(int a, int b) {
+//		Si a es positiva
+		while(a>0){
+			a--;
+			b++;
+		}
+		
+//		Si a es negativa
+		while(a<0){
+			a++;
+			b--;
+		}
+		System.out.println("El resultado de la suma es: "+ b);
+		
+	}
 
 	// 11. Escribir un método para verificar si un numero positivo de 2 digitos es palindromo
 	
+	public static void revisarPalindromo(int texto) {
+		
+		 String texto2 = String.valueOf(texto);
+		 String reversa = "";
+		
+		 for (int i = texto2.length() - 1; i>=0; i-- ) {
+			
+			 reversa = reversa + texto2.charAt(i);
+		 }
+		
+		 if(reversa.equals(texto2)){
+			 System.out.println("El numero es palindromo");
+		 }else {
+			 System.out.println("El numero no es palindromo");
+		 }
+		
+	}
 	
 	// 12. Sin usar loops, escribir un metodo para sumar todos los digitos de un numero donde 99 >= n >= 10
+	
+	public static void sumarDigitos(int num) {
+		int suma = 0;
+
+        
+        if(num<=99 && num>=10) {
+        	while (num > 0 ) {
+                suma += num % 10; // quitar la parte izquierda del numero (decimales)
+                num /= 10; // ir recorriendo el numero
+            }
+        	System.out.println("La suma de los dígitos es: " + suma);
+        }else {
+        	System.out.println("El valor ingresado sale de los parametros ");
+        }
+    
+	}
+	
 	// 13. Escribir un método para remover espacios en blanco de un String. ej ->
 	// "Hola Mundo" -> "HolaMundo"
+	
+	public static String removerEspacios(String texto) {
+		String textoCompacto = texto.replaceAll(" ","");
+		
+		return textoCompacto;
+	}
+	
 	// 14. Escribir un método para invertir un String. ej -> "Hola" -> "aloH" ---
 	// Sin usar loops
+	
+	public static String reversarCadena(String texto) {
+		
+		String reversa = "";
+		
+		for (int i = texto.length() - 1; i>=0; i-- ) {
+			
+			reversa = reversa + texto.charAt(i);
+		}
+		
+		return reversa;
+		
+	}
+	
 	// 15x. Escribir un metodo para encontrar el factorial de un numero sin loops
+	
+	public static long calcularFactorial(int n) {
+        if (n == 0 || n == 1) { 
+            return 1;
+        } else { // llamarse a si mismo multiplicar n-1 hasta llegar a 1 por el if de arriba
+            return n * calcularFactorial(n-1);
+        }
+    }
+    
 
-	// Actividad 1: Si X, Y, Z son variables de tipo boolean con valores X
 	
 //	metodo principal
 	public static void main(String[] args) {
@@ -156,7 +235,20 @@ public class EjerciciosJava {
 		
 //		anioBisiesto(1998);
 		
-		numerosPrimos(100);
+//		numerosPrimos(100);
+		
+//		sumarNumeros(50, -30);
+		
+//		revisarPalindromo(22);
+		
+//		sumarDigitos(99);
+		
+//		System.out.println(removerEspacios("Hola Mundo"));
+		
+//		System.out.println(reversarCadena("Hola mi gente"));
+		
+		System.out.println("El factorial de 5 es: "+ calcularFactorial(5));
+		
 		
 	}
 
